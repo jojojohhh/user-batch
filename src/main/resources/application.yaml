@@ -1,0 +1,28 @@
+spring.application.name: batch
+
+spring:
+  datasource:
+    source:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/source_db
+      username: source_user
+      password: 1234
+    batch:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:13306/batch_db
+      username: batch_user
+      password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true
+
+logging:
+  level:
+    kr.osci.batch: debug
+#    org.springframework: debug
