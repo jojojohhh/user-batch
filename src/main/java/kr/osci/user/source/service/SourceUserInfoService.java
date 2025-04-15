@@ -12,6 +12,7 @@ import java.util.List;
 public class SourceUserInfoService {
 
     private static final Logger log = LoggerFactory.getLogger(SourceUserInfoService.class);
+
     private final SourceUserInfoRepository sourceUserInfoRepository;
 
     public SourceUserInfoService(SourceUserInfoRepository sourceUserInfoRepository) {

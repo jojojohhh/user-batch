@@ -16,6 +16,10 @@ public class RestUserInfoController {
     private final SourceUserInfoService sourceUserInfoService;
     private final BatchUserInfoService batchUserInfoService;
 
+//    public RestUserInfoController(BatchUserInfoService batchUserInfoService) {
+//        this.batchUserInfoService = batchUserInfoService;
+//    }
+
     public RestUserInfoController(SourceUserInfoService sourceUserInfoService, BatchUserInfoService batchUserInfoService) {
         this.sourceUserInfoService = sourceUserInfoService;
         this.batchUserInfoService = batchUserInfoService;

@@ -1,17 +1,24 @@
 spring.application.name: batch
 
 spring:
-  datasource:
-    source:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/source_db
-      username: source_user
-      password: 1234
-    batch:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:13306/batch_db
-      username: batch_user
-      password: 1234
+  jta:
+    enabled: true
+    atomikos:
+      datasource:
+        source:
+          unique-resource-name: sourceDataSource
+          xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+          xa-properties:
+            url: jdbc:mysql://localhost:3306/source_db
+            username: source_user
+            password: 1234
+        batch:
+          unique-resource-name: batchDataSource
+          xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+          xa-properties:
+            url: jdbc:mysql://localhost:13306/batch_db
+            username: batch_user
+            password: 1234
   jpa:
     hibernate:
       ddl-auto: validate
@@ -21,6 +28,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         show_sql: true
+    open-in-view: false
 
 logging:
   level:
